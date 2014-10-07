@@ -1,6 +1,6 @@
 # DpdApi
 
-TODO: Write a gem description
+**Ruby on Rails API for DPD delivering company**
 
 ## Installation
 
