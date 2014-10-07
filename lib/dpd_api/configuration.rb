@@ -15,6 +15,12 @@ module DpdApi
 
     attr_reader :auth_params
 
+    def initialize
+      @client_key    = '123'
+      @client_number = '234'
+      @base_url      = 'http://wstest.dpd.ru'
+    end
+
     def auth_params
       {
         auth: {

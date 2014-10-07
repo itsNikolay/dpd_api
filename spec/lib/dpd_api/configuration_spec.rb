@@ -12,18 +12,9 @@ describe DpdApi do
       }
     }
   end
-
-  before do
-    described_class.configure do |config|
-      config.client_key    = client_key
-      config.client_number = client_number
-      config.base_url      = base_url
-    end
-  end
+  let(:configuration) { described_class.configuration }
 
   it ".configuration" do
-    configuration = described_class.configuration
-
     expect(configuration.client_key).to eq    client_key
     expect(configuration.client_number).to eq client_number
     expect(configuration.base_url).to eq      base_url

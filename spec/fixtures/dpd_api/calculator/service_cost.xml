@@ -1,0 +1,55 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:getServiceCost2Response xmlns:ns2="http://dpd.ru/ws/calculator/2012-03-20">
+      <return>
+        <serviceCode>TEN</serviceCode>
+        <serviceName>DPD 10:00</serviceName>
+        <cost>551.65</cost>
+        <days>4</days>
+      </return>
+      <return>
+        <serviceCode>DPT</serviceCode>
+        <serviceName>DPD 13:00</serviceName>
+        <cost>486.75</cost>
+        <days>4</days>
+      </return>
+      <return>
+        <serviceCode>NDY</serviceCode>
+        <serviceName>DPD EXPRESS</serviceName>
+        <cost>1328.83</cost>
+        <days>4</days>
+      </return>
+      <return>
+        <serviceCode>BZP</serviceCode>
+        <serviceName>DPD 18:00</serviceName>
+        <cost>421.85</cost>
+        <days>4</days>
+      </return>
+      <return>
+        <serviceCode>CUR</serviceCode>
+        <serviceName>DPD CLASSIC domestic</serviceName>
+        <cost>1022.18</cost>
+        <days>4</days>
+      </return>
+      <return>
+        <serviceCode>ECN</serviceCode>
+        <serviceName>DPD ECONOMY</serviceName>
+        <cost>324.5</cost>
+        <days>5</days>
+      </return>
+      <return>
+        <serviceCode>CSM</serviceCode>
+        <serviceName>DPD Consumer</serviceName>
+        <cost>448.4</cost>
+        <days>4</days>
+      </return>
+      <return>
+        <serviceCode>PCL</serviceCode>
+        <serviceName>DPD CLASSIC Parcel</serviceName>
+        <cost>177.0</cost>
+        <days>4</days>
+      </return>
+    </ns2:getServiceCost2Response>
+  </S:Body>
+</S:Envelope>

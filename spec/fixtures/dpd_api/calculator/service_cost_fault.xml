@@ -1,0 +1,15 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <S:Fault xmlns:ns4="http://www.w3.org/2003/05/soap-envelope">
+      <faultcode>S:Server</faultcode>
+      <faultstring>Населенный пункт cityId=0 не найден</faultstring>
+      <detail>
+        <ns2:ServiceCostFault2 xmlns:ns2="http://dpd.ru/ws/calculator/2012-03-20">
+          <code>no-data-found</code>
+          <message>Населенный пункт cityId=0 не найден</message>
+        </ns2:ServiceCostFault2>
+      </detail>
+    </S:Fault>
+  </S:Body>
+</S:Envelope>

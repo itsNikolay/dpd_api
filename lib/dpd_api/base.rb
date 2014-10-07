@@ -1,9 +1,7 @@
 module DpdApi
   class Base
     def initialize
-      @base_url    = DpdApi::Configuration::BASE_URL
-      @auth_params = DpdApi::Configuration::AUTH_PARAMS
-      @client      = Savon.client(wsdl: self.class.url)
+      @client = Savon.client(wsdl: self.class.url)
     end
 
     def operations
@@ -12,7 +10,10 @@ module DpdApi
 
     def response(method, params = {})
       begin
-        params    = @auth_params.clone.deep_merge!(params)
+        params    = DpdApi.configuration
+                          .auth_params
+                          .clone
+                          .deep_merge!(params)
         request   = params.blank? ?  params : { request: params  }
         response  = @client.call(method, message: request)
         namespace = "#{method}_response".to_sym
@@ -22,7 +23,7 @@ module DpdApi
                     else
                       [] << resources
                     end
-        { resources: resources }
+        resources
       rescue Savon::SOAPFault => error
         { errors: error.to_s }
       end

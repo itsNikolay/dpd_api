@@ -1,7 +1,7 @@
 module DpdApi
   class Calculator < Base
     def self.url
-      "#{DpdApi::Configuration::BASE_URL}/services/calculator2?wsdl"
+      "#{DpdApi.configuration.base_url}/services/calculator2?wsdl"
     end
 
     def service_cost(params = {})

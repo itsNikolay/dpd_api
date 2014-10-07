@@ -1,5 +1,0 @@
-DpdApi.configure do |config|
-  config.client_key    = '12345678'
-  config.client_number = 'ASDFGHJJKL'
-  config.base_url      = 'http://wstest.dpd.ru'
-end
