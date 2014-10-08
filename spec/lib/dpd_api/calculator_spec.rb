@@ -53,4 +53,48 @@ describe DpdApi::Calculator do
       expect(response).to have_key(:errors)
     end
   end
+
+  context "#service_cost_by_parcels" do
+    let(:fixture) { File.read("spec/fixtures/dpd_api/calculator/service_cost_by_parcels.xml") }
+    let(:params) do
+      { pickup:   { city_id: 195851995 },
+        delivery: { city_id: 48951627 },
+        self_pickup:   true,
+        self_delivery: true,
+        parcel: {
+          weight: 0.5,
+          length: 0.5,
+          width:  0.5,
+          height: 0.5,
+        },
+        parcel: {
+          weight: 1,
+          length: 1,
+          width:  1,
+          height: 1,
+        } }
+    end
+
+    it "is success" do
+      savon.expects(:get_service_cost_by_parcels2).with(message: message).returns(fixture)
+
+      response = service.service_cost_by_parcels(params)
+      expect(response.first).to have_key(:service_code)
+      expect(response.first).to have_key(:service_name)
+      expect(response.first).to have_key(:cost)
+      expect(response.first).to have_key(:days)
+    end
+  end
+
+  context "#service_cost_by_parcels" do
+    let(:fixture) { File.read("spec/fixtures/dpd_api/calculator/service_cost_by_parcels_fault.xml") }
+    let(:params) { { pickup: { city_id: 0 } } }
+
+    it "is fails" do
+      savon.expects(:get_service_cost_by_parcels2).with(message: message).returns(fixture)
+
+      response = service.service_cost_by_parcels(params)
+      expect(response).to have_key(:errors)
+    end
+  end
 end

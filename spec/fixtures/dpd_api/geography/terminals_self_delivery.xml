@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:getTerminalsSelfDelivery2Response xmlns:ns2="http://dpd.ru/ws/geography/2012-04-17">
+      <return>
+        <terminal>
+          <terminalCode>ABA</terminalCode>
+          <terminalName>Абакан - терминал</terminalName>
+          <terminalAddress>655004, Хакасия респ., г. Абакан, ул. Игарская, д. 10</terminalAddress>
+          <geoCoordinates>
+            <geoX>53.710113</geoX>
+            <geoY>91.392873</geoY>
+          </geoCoordinates>
+          <workingTime>
+            <weekDays>Пн,Вт,Ср,Чт,Пт</weekDays>
+            <workTime>08:00 - 19:30</workTime>
+          </workingTime>
+          <workingTime>
+            <weekDays>Сб,Вс</weekDays>
+            <workTime>08:00 - 18:30</workTime>
+          </workingTime>
+        </terminal>
+        <city>
+          <cityId>195851995</cityId>
+          <countryCode>RU</countryCode>
+          <countryName>Россия</countryName>
+          <regionCode>19</regionCode>
+          <regionName>Хакасия</regionName>
+          <cityCode>19000001000</cityCode>
+          <cityName>Абакан</cityName>
+        </city>
+      </return>
+    </ns2:getTerminalsSelfDelivery2Response>
+  </S:Body>
+</S:Envelope>

@@ -3,7 +3,7 @@ require 'spec_helper'
 describe DpdApi do
   let(:client_key)    { '123' }
   let(:client_number) { '234' }
-  let(:base_url)      { 'http://example.com' }
+  let(:base_url)      { 'http://wstest.dpd.ru' }
   let(:auth_params) do
     {
       auth: {

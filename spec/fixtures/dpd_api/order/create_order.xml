@@ -1,0 +1,14 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:createOrderResponse xmlns:ns2="http://dpd.ru/ws/order2/2012-04-04">
+      <return>
+        <orderNumberInternal>12345678</orderNumberInternal>
+        <status>OrderPending</status>
+        <errorMessage>Заказ обрабатывается нашими сотрудниками. Не повторяйте оформление данного заказа.
+---------------------
+2884657523 Нет разрешения на загрузку посылок!</errorMessage>
+      </return>
+    </ns2:createOrderResponse>
+  </S:Body>
+</S:Envelope>

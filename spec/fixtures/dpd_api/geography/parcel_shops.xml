@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:getParcelShopsResponse xmlns:ns2="http://dpd.ru/ws/geography/2012-04-17">
+      <return>
+        <parcelShop>
+          <code>01A</code>
+          <parcelShopType>ПВП</parcelShopType>
+          <address>
+            <countryCode>RU</countryCode>
+            <regionCode>61</regionCode>
+            <regionName>Ростовская</regionName>
+            <cityCode>61000001000</cityCode>
+            <cityName>Ростов-на-Дону</cityName>
+            <addressString>344038, Ростовская обл., г. Ростов-на-Дону, пр-т Ленина, д. 115</addressString>
+          </address>
+          <geoCoordinates>
+            <geoX>47.249054</geoX>
+            <geoY>39.722657</geoY>
+          </geoCoordinates>
+          <limits>
+            <maxWeight>31</maxWeight>
+            <maxLength>100</maxLength>
+            <maxWidth>100</maxWidth>
+            <maxHeight>100</maxHeight>
+          </limits>
+          <workingTime>
+            <weekDays>Пн,Вт,Ср,Чт,Пт,Сб</weekDays>
+            <workTime>09:00 - 20:00</workTime>
+          </workingTime>
+          <workingTime>
+            <weekDays>Вс</weekDays>
+            <workTime>выходной</workTime>
+          </workingTime>
+        </parcelShop>
+      </return>
+    </ns2:getParcelShopsResponse>
+  </S:Body>
+</S:Envelope>

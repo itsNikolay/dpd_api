@@ -1,0 +1,12 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:getOrderStatusResponse xmlns:ns2="http://dpd.ru/ws/order2/2012-04-04">
+      <return>
+        <orderNumberInternal>1234567</orderNumberInternal>
+        <status>OrderError</status>
+        <errorMessage>2884657523 Нет разрешения на загрузку посылок!</errorMessage>
+      </return>
+    </ns2:getOrderStatusResponse>
+  </S:Body>
+</S:Envelope>

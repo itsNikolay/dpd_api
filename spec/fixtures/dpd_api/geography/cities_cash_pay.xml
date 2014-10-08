@@ -1,0 +1,23 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:getCitiesCashPayResponse xmlns:ns2="http://dpd.ru/ws/geography/2012-04-17">
+      <return>
+        <cityId>48951627</cityId>
+        <countryCode>RU</countryCode>
+        <countryName>Россия</countryName>
+        <regionCode>42</regionCode>
+        <regionName>Кемеровская</regionName>
+        <cityName>Кемерово</cityName>
+      </return>
+      <return>
+        <cityId>48994107</cityId>
+        <countryCode>RU</countryCode>
+        <countryName>Россия</countryName>
+        <regionCode>66</regionCode>
+        <regionName>Свердловская</regionName>
+        <cityName>Екатеринбург</cityName>
+      </return>
+    </ns2:getCitiesCashPayResponse>
+  </S:Body>
+</S:Envelope>

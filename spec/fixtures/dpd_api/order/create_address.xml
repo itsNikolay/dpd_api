@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "UTF-8" ?>
+<S:Envelope xmlns:S="http://schemas.xmlsoap.org/soap/envelope/">
+  <S:Body>
+    <ns2:createAddressResponse xmlns:ns2="http://dpd.ru/ws/order2/2012-04-04">
+      <return>
+        <code>78</code>
+        <status>OK</status>
+      </return>
+    </ns2:createAddressResponse>
+  </S:Body>
+</S:Envelope>
