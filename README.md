@@ -30,6 +30,7 @@ gem install dpd_api
 
 ```ruby
 require 'dpd_api'
+
 client_key    = 'ASD7686ASD76786786786786AASD'
 client_number = '123456789'
 DpdApi.configure { |c| c.client_key = client_key; c.client_number = client_number; }
