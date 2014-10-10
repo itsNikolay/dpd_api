@@ -417,3 +417,15 @@ DpdApi::Order.remove_parcels(params)
 
 ```
 
+
+####.invoice_file
+matches `getInvoiceFile`
+```ruby
+params = { order_num: '10160002MOW' }
+
+DpdApi::Order.invoice_file(params)
+
+# => {
+        file: 'JVBERi0xLjQKJeLj . . .'
+     }
+```
