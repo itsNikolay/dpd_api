@@ -55,7 +55,7 @@ Getting started
 ---------------
 
 ### DpdApi::Geography
-matches `services/geography?wsdl` in DPD SOAP API
+matches `/services/geography?wsdl` in DPD SOAP API
 
 ####.cities_cash_pay
 matches `getCitiesCashPay`
@@ -146,4 +146,59 @@ DpdApi::Geography.parcel_shops(params)
 
 ```
 
+### DpdApi::Calculator
+matches `/services/calculator2?wsdl` in DPD SOAP API
+
+####.service_cost
+matches `getSeviceCost2`
+```ruby
+params = { pickup:   { city_id: 195851995 },
+           delivery: { city_id: 48951627 },
+           self_pickup:   false,
+           self_delivery: false,
+           weight: 1, }
+
+DpdApi::Geography.service_cost(params)
+
+# => [{
+        service_code: "TEN",
+        service_name: "DPD 10:00",
+        cost:         "2228.67",
+        days:         "4"
+      }, . . . ]
+
+```
+
+####.service_cost_by_parcels
+matches `getServiceCostByParcels2`
+```ruby
+params = {
+            pickup:   { city_id: 195851995 },
+            delivery: { city_id: 48951627 },
+            self_pickup:   true,
+            self_delivery: true,
+            parcel: {
+                weight: 0.5,
+                length: 0.5,
+                width:  0.5,
+                height: 0.5,
+            },
+            parcel: {
+                weight: 1,
+                length: 1,
+                width:  1,
+                height: 1,
+            },
+         }
+
+DpdApi::Geography.service_cost_by_parcels(params)
+
+# => [{
+        service_code: "TEN",
+        service_name: "DPD 10:00",
+        cost:         "551.65",
+        days:         "4"
+     }, . . . ]
+
+```
 
