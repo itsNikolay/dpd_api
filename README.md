@@ -9,6 +9,12 @@ Installation
 ### Rails
 
 ```ruby
+# Gemfile
+
+gem 'dpd_api'
+```
+
+```ruby
 # config/initializers/dpd_api.rb
 
 DpdApi.configure do |config|
@@ -20,6 +26,10 @@ end
 ```
 
 ### Ruby
+```ruby
+gem install dpd_api
+```
+
 ```ruby
 client_key    = 'ASD7686ASD76786786786786AASD'
 client_number = '123456789'
