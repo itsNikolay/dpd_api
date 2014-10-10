@@ -1,31 +1,40 @@
-# DpdApi
+DpdApi
+======
 
-**Ruby on Rails API for DPD delivering company**
+Ruby implementation for [DPD](http://dpd.ru) SOAP API
 
-## Installation
+Installation
+------------
 
-Add this line to your application's Gemfile:
+### Rails
 
 ```ruby
-gem 'dpd_api'
+# config/initializers/dpd_api.rb
+
+DpdApi.configure do |config|
+  # your dpd's given client key and client number
+  config.client_key    = 'ASD7686ASD76786786786786AASD'
+  config.client_number = '123456789'
+  config.base_url = Rails.env.production? ? 'http://ws.dpd.ru' : 'http://wstest.dpd.ru'
+end
 ```
 
-And then execute:
+### Ruby
+```ruby
+DpdApi.configure { |c| c.client_key = 'ASD7686ASD76786786786786AASD'; config.client_number = '123456789'; }
+```
 
-    $ bundle
+Quickstart
+----------
 
-Or install it yourself as:
+```ruby
+params = { pickup:   { city_id: 195851995 },
+           delivery: { city_id: 48951627 },
+           self_pickup:   false,
+           self_delivery: false,
+           weight: 1, }
 
-    $ gem install dpd_api
+DpdApi::Calculator.new.service_cost(params)
 
-## Usage
-
-TODO: Write usage instructions here
-
-## Contributing
-
-1. Fork it ( https://github.com/[my-github-username]/dpd_api/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+#=> [{:service_code=>"TEN", :service_name=>"DPD 10:00", :cost=>"2228.67", :days=>"4"}, {:service_code=>"DPT", :service_name=>"DPD 13:00", :cost=>"1966.47", :days=>"4"}, . . .]
+```
