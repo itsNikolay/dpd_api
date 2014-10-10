@@ -445,7 +445,7 @@ DpdApi::Tracing.states_by_client_order(params)
 
 ```
 
-####.states_by_client_order
+####.states_by_client_parcel
 matches `getStatesByClientParcel`
 ```ruby
 params = {
