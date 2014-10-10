@@ -26,6 +26,11 @@ module DpdApi
         response(method, params)
       end
 
+      # TODO: add :save for file
+      # 
+      #f = File.new("/tmp/file.pdf", "w")
+      #f.write(Base64.decode64(invoice[:file]).force_encoding('UTF-8'))
+      #f.close
       def invoice_file(params = {})
         method = :get_invoice_file
         response(method, params)

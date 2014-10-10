@@ -429,3 +429,46 @@ DpdApi::Order.invoice_file(params)
         file: 'JVBERi0xLjQKJeLj . . .'
      }
 ```
+
+
+### DpdApi::Tracing
+matches `/services/tracing1-1?wsdl` in DPD SOAP API
+
+####.states_by_client_order
+matches `getStatesByClientOrder`
+```ruby
+params = {
+            client_order_nr: '12345',
+         }
+
+DpdApi::Tracing.states_by_client_order(params)
+
+```
+
+### DpdApi::Tracing
+matches `/services/tracing1-1?wsdl` in DPD SOAP API
+
+####.states_by_client_order
+matches `getStatesByClientParcel`
+```ruby
+params = {
+            client_parcel_nr: '987654321',
+         }
+
+DpdApi::Tracing.states_by_client_parcel(params)
+
+```
+
+### DpdApi::Tracing
+matches `/services/tracing1-1?wsdl` in DPD SOAP API
+
+####.states_by_dpd_order
+matches `getStatesByDpdOrder`
+```ruby
+params = {
+            client_parcel_nr: '987654321',
+         }
+
+DpdApi::Tracing.states_by_dpd_order(params)
+
+```
