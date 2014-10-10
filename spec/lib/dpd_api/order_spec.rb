@@ -5,7 +5,6 @@ describe DpdApi::Order do
   before(:all) { savon.mock!   }
   after(:all)  { savon.unmock! }
 
-  let(:service) { described_class.new }
   let(:auth) do
     { request: {
       auth: {
@@ -15,7 +14,7 @@ describe DpdApi::Order do
   end
   let(:message) { auth.clone.deep_merge!({ request: params }) }
 
-  context "#create_order" do
+  context ".create_order" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/create_order.xml") }
     let(:params) do
       {
@@ -64,14 +63,14 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:create_order).with(message: message).returns(fixture)
 
-      response = service.create_order(params)
+      response = described_class.create_order(params)
       expect(response.first).to have_key(:order_number_internal)
       expect(response.first).to have_key(:status)
       expect(response.first).to have_key(:error_message)
     end
   end
 
-  context "#cancel_order" do
+  context ".cancel_order" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/cancel_order.xml") }
     let(:params) do
       { cancel: {
@@ -82,13 +81,13 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:cancel_order).with(message: message).returns(fixture)
 
-      response = service.cancel_order(params)
+      response = described_class.cancel_order(params)
       expect(response.first).to have_key(:order_number_internal)
       expect(response.first).to have_key(:status)
     end
   end
 
-  context "#order_status" do
+  context ".order_status" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/order_status.xml") }
     let(:params) do
       { order: {
@@ -99,14 +98,14 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:get_order_status).with(message: message).returns(fixture)
 
-      response = service.order_status(params)
+      response = described_class.order_status(params)
       expect(response.first).to have_key(:order_number_internal)
       expect(response.first).to have_key(:status)
       expect(response.first).to have_key(:error_message)
     end
   end
 
-  context "#create_address" do
+  context ".create_address" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/create_address.xml") }
     let(:params) do
       { client_address: {
@@ -124,13 +123,13 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:create_address).with(message: message).returns(fixture)
 
-      response = service.create_address(params)
+      response = described_class.create_address(params)
       expect(response.first).to have_key(:code)
       expect(response.first).to have_key(:status)
     end
   end
 
-  context "#update_address" do
+  context ".update_address" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/update_address.xml") }
     let(:params) do
       { client_address: {
@@ -148,14 +147,14 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:update_address).with(message: message).returns(fixture)
 
-      response = service.update_address(params)
+      response = described_class.update_address(params)
       expect(response.first).to have_key(:code)
       expect(response.first).to have_key(:status)
     end
   end
 
   # TODO: just fill with response the invoice_file.xml file and test should pass
-  xcontext "#invoice_file" do
+  xcontext ".invoice_file" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/invoice_file.xml") }
     let(:params) do
       { order_num: '1234567', }
@@ -164,13 +163,13 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:get_invoice_file).with(message: message).returns(fixture)
 
-      response = service.invoice_file(params)
+      response = described_class.invoice_file(params)
       expect(response.first).to have_key(:file)
     end
   end
 
   # TODO: just fill with response the add_parcels.xml file and test should pass
-  xcontext "#add_parcels" do
+  xcontext ".add_parcels" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/add_parcels.xml") }
     let(:params) do
     end
@@ -178,7 +177,7 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:add_parcels).with(message: message).returns(fixture)
 
-      response = service.add_parcels(params)
+      response = described_class.add_parcels(params)
       expect(response.first).to have_key(:parcel_status)
       expect(response.first).to have_key(:status)
     end

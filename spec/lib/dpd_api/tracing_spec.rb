@@ -5,7 +5,6 @@ describe DpdApi::Order do
   before(:all) { savon.mock!   }
   after(:all)  { savon.unmock! }
 
-  let(:service) { described_class.new }
   let(:auth) do
     { request: {
       auth: {
@@ -16,7 +15,7 @@ describe DpdApi::Order do
   let(:message) { auth.clone.deep_merge!({ request: params }) }
 
   # TODO: Add
-  xcontext "#states_by_client_order" do
+  xcontext ".states_by_client_order" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/tracing/states_by_client_order.xml") }
     let(:params) do
     end
@@ -24,13 +23,13 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:get_states_by_client_order).with(message: message).returns(fixture)
 
-      response = service.states_by_client_order(params)
+      response = described_class.states_by_client_order(params)
       expect(response.first).to have_key(:parcel_status)
     end
   end
 
   # TODO: Add
-  xcontext "#states_by_client_parcel" do
+  xcontext ".states_by_client_parcel" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/tracing/states_by_client_parcel.xml") }
     let(:params) do
     end
@@ -38,13 +37,13 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:get_states_by_client_parcel).with(message: message).returns(fixture)
 
-      response = service.states_by_client_parcel(params)
+      response = described_class.states_by_client_parcel(params)
       expect(response.first).to have_key(:parcel_status)
     end
   end
 
   # TODO: Add
-  xcontext "#states_by_dpd_order" do
+  xcontext ".states_by_dpd_order" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/tracing/states_by_dpd_order.xml") }
     let(:params) do
     end
@@ -52,7 +51,7 @@ describe DpdApi::Order do
     it "is success" do
       savon.expects(:get_states_by_dpd_order).with(message: message).returns(fixture)
 
-      response = service.states_by_dpd_order(params)
+      response = described_class.states_by_dpd_order(params)
       expect(response.first).to have_key(:parcel_status)
     end
   end

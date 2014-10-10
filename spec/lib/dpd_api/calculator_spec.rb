@@ -5,7 +5,6 @@ describe DpdApi::Calculator do
   before(:all) { savon.mock!   }
   after(:all)  { savon.unmock! }
 
-  let(:service) { described_class.new }
   let(:auth) do
     { request: {
       auth: {
@@ -15,7 +14,7 @@ describe DpdApi::Calculator do
   end
   let(:message) { auth.clone.deep_merge!({ request: params }) }
 
-  context "#service_cost" do
+  context ".service_cost" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/calculator/service_cost.xml") }
     let(:params) do
       { pickup:   { city_id: 195851995 },
@@ -28,7 +27,7 @@ describe DpdApi::Calculator do
     it "is success" do
       savon.expects(:get_service_cost2).with(message: message).returns(fixture)
 
-      response = service.service_cost(params)
+      response = described_class.service_cost(params)
       expect(response.first).to have_key(:service_code) # 'TEN'
       expect(response.first).to have_key(:service_name) # 'DPD 10:00'
       expect(response.first).to have_key(:cost)         # '551.65'
@@ -36,7 +35,7 @@ describe DpdApi::Calculator do
     end
   end
 
-  context "#serivce_cost" do
+  context ".serivce_cost" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/calculator/service_cost_fault.xml") }
     let(:params) do
       { pickup:   { city_id: '0' },
@@ -49,12 +48,12 @@ describe DpdApi::Calculator do
     it "is fault" do
       savon.expects(:get_service_cost2).with(message: message).returns(fixture)
 
-      response = service.service_cost(params)
+      response = described_class.service_cost(params)
       expect(response).to have_key(:errors)
     end
   end
 
-  context "#service_cost_by_parcels" do
+  context ".service_cost_by_parcels" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/calculator/service_cost_by_parcels.xml") }
     let(:params) do
       { pickup:   { city_id: 195851995 },
@@ -78,7 +77,7 @@ describe DpdApi::Calculator do
     it "is success" do
       savon.expects(:get_service_cost_by_parcels2).with(message: message).returns(fixture)
 
-      response = service.service_cost_by_parcels(params)
+      response = described_class.service_cost_by_parcels(params)
       expect(response.first).to have_key(:service_code)
       expect(response.first).to have_key(:service_name)
       expect(response.first).to have_key(:cost)
@@ -86,14 +85,14 @@ describe DpdApi::Calculator do
     end
   end
 
-  context "#service_cost_by_parcels" do
+  context ".service_cost_by_parcels" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/calculator/service_cost_by_parcels_fault.xml") }
     let(:params) { { pickup: { city_id: 0 } } }
 
     it "is fails" do
       savon.expects(:get_service_cost_by_parcels2).with(message: message).returns(fixture)
 
-      response = service.service_cost_by_parcels(params)
+      response = described_class.service_cost_by_parcels(params)
       expect(response).to have_key(:errors)
     end
   end
