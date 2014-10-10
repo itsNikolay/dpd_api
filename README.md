@@ -1,7 +1,7 @@
 DpdApi
 ======
 
-Ruby implementation for [DPD](http://dpd.ru) SOAP API
+:small_red_triangle_down: Ruby implementation for [DPD](http://dpd.ru)'s SOAP API
 
 Installation
 ------------
