@@ -387,3 +387,33 @@ DpdApi::Order.add_parcels(params)
 
 ```
 
+####.remove_parcels
+matches `removeParcels`
+```ruby
+params = {
+            order_num: '10160001MOW',
+            cargo_num_pack: '1',
+            cargo_weight: '1',
+            cargo_category: 'Одежда',
+            parcel: [
+                {
+                    number: '987654321',
+                },
+            ],
+         }
+
+
+DpdApi::Order.remove_parcels(params)
+
+# => {
+        order_num: "10160001MOW",
+        status: "OK",
+        parcel_status: {
+            number: "987654321",
+            status: "OK",
+        },
+     }
+
+
+```
+
