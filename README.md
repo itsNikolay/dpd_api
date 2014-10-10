@@ -202,3 +202,188 @@ DpdApi::Geography.service_cost_by_parcels(params)
 
 ```
 
+### DpdApi::Order
+matches `/services/order2?wsdl`
+
+####.create_order
+matches `createOrder`
+```ruby
+params = {
+            header: {
+                date_pickup: date,
+                sender_address: {
+                    name: fio,
+                    terminal_code: 'ABA',
+                    city: 'Москва',
+                    street: 'Ленина',
+                    street_abbr: 'ул',
+                    house: 1,
+                    contact_fio: fio,
+                    contact_phone: '+79211234567',
+                },
+            },
+            order: [
+                {
+                    order_number_internal: '1234567',
+                    service_code: 'TEN',
+                    service_variant: 'ТД',
+                    cargo_num_pack: '1',
+                    cargo_weight: '1',
+                    cargo_registered: false,
+                    cargo_category: 'Одежда',
+                    receiver_address: {
+                        name: fio,
+                        terminal_code: '',
+                        city: 'Воронеж',
+                        street: 'Красноармейская',
+                        street_abbr: 'ул',
+                        house: 1,
+                        contact_fio: fio,
+                        contact_phone: '+79211234567',
+                    },
+                    parcel: [
+                        {
+                            number: '123456789',
+                        },
+                    ],
+                },
+            ],
+        }
+
+DpdApi::Order.create_order(params)
+
+# => [{
+        order_number_internal: "1234567",
+        order_num: "10160002MOW",
+        status: "OK",
+        error_message:  nil,
+     }]
+
+```
+
+####.order_status
+matches `getOrderStatus`
+```ruby
+params = {
+            order: {
+                order_number_internal: '123456',
+            }
+         }
+
+
+DpdApi::Order.order_status(params)
+
+# => [{
+        order_number_internal: "123456",
+        order_num: "10160001MOW",
+        status: "OK",
+     }]
+
+
+```
+####.create_address
+matches `createAddress`
+```ruby
+params = {
+            client_address: {
+                code: '78',
+                name: fio,
+                city: 'Воронеж',
+                street: 'Красноармейская',
+                street_abbr: 'ул',
+                house: 1,
+                contact_fio: fio,
+                contact_phone: '+79211234567',
+            },
+         }
+
+
+
+DpdApi::Order.create_address(params)
+
+# => [{
+         code:   "78",
+         status: "OK",
+     }]
+
+
+```
+####.update_address
+matches `updateAddress`
+```ruby
+params = {
+            client_address: {
+                code: '78',
+                name: fio,
+                city: 'Воронеж',
+                street: 'Красноармейская',
+                street_abbr: 'ул',
+                house: 1,
+                contact_fio: fio,
+                contact_phone: '+79200000000',
+            },
+         }
+
+
+
+
+DpdApi::Order.update_address(params)
+
+# => [{
+         code:   "78",
+         status: "OK",
+     }]
+```
+
+####.cancel_order
+matches `cancelOrder`
+```ruby
+params = {
+            cancel: {
+                order_num: '10160001MOW',
+            },
+         }
+
+DpdApi::Order.cancel_order(params)
+
+# => [{
+        order_number_internal: "123456",
+        order_num: "10160001MOW",
+        status: "Canceled",
+     }]
+
+```
+
+####.add_parcels
+matches `addParcels`
+```ruby
+params = {
+            order_num: '10160001MOW',
+            cargo_num_pack: '2',
+            cargo_weight: '2',
+            cargo_category: 'Одежда',
+            parcel: [
+                { number: '987654321' },
+                { number: '5678' },
+            ],
+        }
+
+DpdApi::Order.add_parcels(params)
+
+# => {
+        order_num: "10160001MOW",
+        status:    "OK",
+        parcel_status: [
+            {
+                number: "987654321",
+                status: "OK",
+            },
+            {
+                number: "5678",
+                status: "OK"
+            }
+        ]
+     }
+
+```
+
