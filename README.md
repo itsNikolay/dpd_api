@@ -1,13 +1,12 @@
 DpdApi
 ======
+
+:small_red_triangle_down: Ruby implementation for [DPD](http://dpd.ru)'s SOAP API
+
 [![Gem Version](https://badge.fury.io/rb/dpd_api.svg)](http://badge.fury.io/rb/dpd_api)
 [![Build Status](https://travis-ci.org/itsNikolay/dpd_api.svg)](https://travis-ci.org/itsNikolay/dpd_api)
 [![Code Climate](https://codeclimate.com/github/itsNikolay/dpd_api/badges/gpa.svg)](https://codeclimate.com/github/itsNikolay/dpd_api)
 [![Test Coverage](https://codeclimate.com/github/itsNikolay/dpd_api/badges/coverage.svg)](https://codeclimate.com/github/itsNikolay/dpd_api)
-
-______
-
-:small_red_triangle_down: Ruby implementation for [DPD](http://dpd.ru)'s SOAP API
 
 Installation
 ------------
