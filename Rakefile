@@ -1,3 +1,20 @@
+# encoding: UTF-8
 require "bundler/gem_tasks"
-task default: :spec
+require 'rubygems'
 
+begin
+  require 'bundler/setup'
+rescue LoadError
+  puts 'You must `gem install bundler` and `bundle install` to run rake tasks'
+end
+
+require 'bundler'
+Bundler::GemHelper.install_tasks
+
+require 'rake'
+require 'rspec/core/rake_task'
+
+desc "Run all examples"
+RSpec::Core::RakeTask.new(:spec)
+
+task :default => [:spec]
