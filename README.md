@@ -5,7 +5,7 @@ DpdApi
 [![Code Climate](https://codeclimate.com/github/itsNikolay/dpd_api/badges/gpa.svg)](https://codeclimate.com/github/itsNikolay/dpd_api)
 [![Test Coverage](https://codeclimate.com/github/itsNikolay/dpd_api/badges/coverage.svg)](https://codeclimate.com/github/itsNikolay/dpd_api)
 
-------------
+______
 
 :small_red_triangle_down: Ruby implementation for [DPD](http://dpd.ru)'s SOAP API
 
