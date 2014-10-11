@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 require "dpd_api/version"
 
 require "savon"

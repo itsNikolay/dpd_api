@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module DpdApi
   class Nl < Base
     # TODO: Implement namespace
