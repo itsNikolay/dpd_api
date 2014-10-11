@@ -22,7 +22,6 @@ gem 'dpd_api'
 ```ruby
 # config/initializers/dpd_api.rb
 DpdApi.configure do |config|
-  # your dpd's given client key and client number
   config.client_key    = 'ASD7686ASD76786786786786AASD'
   config.client_number = '123456789'
   config.base_url = Rails.env.production? ? 'http://ws.dpd.ru' : 'http://wstest.dpd.ru'
