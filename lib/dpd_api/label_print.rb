@@ -14,9 +14,9 @@ module DpdApi
         response(method, params, namespace: namespace)
       end
 
-      def response(method, params = {}, namespace: nil)
+      def response(method, params = {}, options = {})
         params    = @auth_params.clone.deep_merge!(params)
-        request   = namespace ? { namespace => params } : params
+        request   = options[:namespace] ? { options[:namespace] => params } : params
         response  = @client.call(method, message: request)
         namespace = "#{method}_response".to_sym
         response.body[namespace][:return]
