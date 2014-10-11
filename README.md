@@ -1,5 +1,6 @@
 DpdApi
 ======
+[![Gem Version](https://badge.fury.io/rb/dpd_api.svg)](http://badge.fury.io/rb/dpd_api)
 
 :small_red_triangle_down: Ruby implementation for [DPD](http://dpd.ru)'s SOAP API
 
