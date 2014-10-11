@@ -1,4 +1,4 @@
-DpdApi[![Test Coverage](https://codeclimate.com/github/itsNikolay/dpd_api/badges/coverage.svg)](https://codeclimate.com/github/itsNikolay/dpd_api)
+DpdApi
 ======
 [![Gem Version](https://badge.fury.io/rb/dpd_api.svg)](http://badge.fury.io/rb/dpd_api)
 [![Build Status](https://travis-ci.org/itsNikolay/dpd_api.svg)](https://travis-ci.org/itsNikolay/dpd_api)
