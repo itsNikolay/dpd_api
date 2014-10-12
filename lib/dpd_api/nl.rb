@@ -4,13 +4,13 @@ module DpdApi
   class Nl < Base
     # TODO: Implement namespace
     class << self
-      def get_nl_amount(params = {})
+      def nl_amount(params = {})
         method = :get_nl_amount
         namespace = :arg0
         response(method, params, namespace: namespace)
       end
 
-      def get_nl_invoice(params = {})
+      def nl_invoice(params = {})
         method = :get_nl_invoice
         namespace = :arg0
         response(method, params, namespace: namespace)

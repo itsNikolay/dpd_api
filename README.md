@@ -470,3 +470,50 @@ params = {
 DpdApi::Tracing.states_by_dpd_order(params)
 
 ```
+
+
+### DpdApi::Nl
+matches `/services/nl?wsdl` in DPD SOAP API
+
+####.nl_amount
+matches `getNLAmount`
+```ruby
+params = {
+            date_from: Time.now - 1.days,
+            date_to:   Time.now + 1 days,
+          }
+
+DpdApi::Tracing.nl_amount(params)
+
+```
+####.nl_invoice
+matches `getNLInvoice`
+```ruby
+params = {
+            date_from: Time.now - 1.days,
+            date_to:   Time.now + 1 days,
+          }
+
+DpdApi::Tracing.nl_invoice(params)
+
+```
+
+
+### DpdApi::LabelPrint
+matches `/services/label-print?wsdl` in DPD SOAP API
+
+####.create_label_file
+matches `createLabelFile`
+```ruby
+params = {
+          file_format: 'PDF',
+          page_size: 'A5',
+          order: [
+            order_num: '10160002MOW',
+            parcels_number: '2',
+          ],
+        }
+
+DpdApi::Tracing.create_label_file(params)
+
+```
