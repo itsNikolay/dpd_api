@@ -2,7 +2,6 @@
 
 module DpdApi
   class LabelPrint < Base
-    # TODO: Implement namespace
     class << self
       def create_label_file(params = {})
         method = :create_label_file
@@ -17,11 +16,7 @@ module DpdApi
       end
 
       def response(method, params = {}, options = {})
-        params    = @auth_params.clone.deep_merge!(params)
-        request   = options[:namespace] ? { options[:namespace] => params } : params
-        response  = @client.call(method, message: request)
-        namespace = "#{method}_response".to_sym
-        response.body[namespace][:return]
+        super[:return]
       end
 
       protected

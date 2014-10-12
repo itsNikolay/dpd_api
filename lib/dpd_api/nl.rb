@@ -2,7 +2,6 @@
 
 module DpdApi
   class Nl < Base
-    # TODO: Implement namespace
     class << self
       def nl_amount(params = {})
         method = :get_nl_amount
@@ -17,11 +16,7 @@ module DpdApi
       end
 
       def response(method, params = {}, options = {})
-        params    = @auth_params.clone.deep_merge!(params)
-        request   = options[:namespace] ? { options[:namespace] => params } : params
-        response  = @client.call(method, message: request)
-        namespace = "#{method}_response".to_sym
-        response.body[namespace][:return]
+        super[:return]
       end
 
       protected
