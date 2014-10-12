@@ -13,7 +13,8 @@ module DpdApi
   class Configuration
     attr_accessor :client_key,
                   :client_number,
-                  :base_url
+                  :base_url,
+                  :debug
 
     attr_reader :auth_params
 
@@ -21,6 +22,7 @@ module DpdApi
       @client_key    = '123'
       @client_number = '234'
       @base_url      = 'http://wstest.dpd.ru'
+      @debug         = false
     end
 
     def auth_params

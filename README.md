@@ -24,6 +24,7 @@ DpdApi.configure do |config|
   config.client_key    = 'ASD7686ASD76786786786786AASD'
   config.client_number = '123456789'
   config.base_url = Rails.env.production? ? 'http://ws.dpd.ru' : 'http://wstest.dpd.ru'
+  config.debug = Rails.env.production? ? false : true
 end
 ```
 

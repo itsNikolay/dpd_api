@@ -16,6 +16,8 @@ describe DpdApi::Geography do
   end
   let(:message) { auth }
 
+  before { enable_debug! }
+
   context ".cities_cash_pay" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/geography/cities_cash_pay.xml") }
 
