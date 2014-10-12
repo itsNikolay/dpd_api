@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = DpdApi::VERSION
   spec.authors       = ["Ponomarev Nikolay"]
   spec.email         = ["itsnikolay@gmail.com"]
-  spec.summary       = %q{Ruby API for Dpd delivery service}
-  spec.description   = %q{Ruby API for Dpd delivery service}
+  spec.summary       = %q{Ruby / Rails wrapper for Dpd's SOAP API}
+  spec.description   = %q{Ruby / Rails wrapper for Dpd's SOAP API}
   spec.homepage      = ""
   spec.license       = "MIT"
 

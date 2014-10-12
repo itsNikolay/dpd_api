@@ -1,11 +1,10 @@
-require "savon"
+require 'savon'
 
 module DpdApi
   module Client
     class Response
       def initialize(url)
-        @url    = url
-        @client = Savon.client(wsdl: @url)
+        @client = Savon.client(wsdl: url)
       end
 
       def response(method, params = {}, options = {})
@@ -18,7 +17,7 @@ module DpdApi
       private
 
       class ResourceBuilder
-        def initialize(client, method, params, options = {})
+        def initialize(client, method, params = {}, options = {})
           @client  = client
           @method  = method
           @namespace = options.delete(:namespace)
@@ -33,7 +32,7 @@ module DpdApi
 
         private
 
-        def merge_auth_params(params)
+        def merge_auth_params(params = {})
           auth_params = DpdApi.configuration.auth_params.clone
           auth_params.deep_merge!(params)
         end
