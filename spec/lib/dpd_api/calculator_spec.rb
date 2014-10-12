@@ -10,8 +10,8 @@ describe DpdApi::Calculator do
   let(:auth) do
     { request: {
       auth: {
-        client_number: "234",
-        client_key:    "123"
+        client_number: ENV['DPD_CLIENT_NUMBER'] || '234',
+        client_key:    ENV['DPD_CLIENT_KEY']    || '123'
       } } }
   end
   let(:message) { auth.clone.deep_merge!({ request: params }) }

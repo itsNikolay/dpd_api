@@ -9,8 +9,8 @@ describe DpdApi::Geography do
 
   let(:auth) do
     { auth: {
-      client_number: "234",
-      client_key:    "123"
+      client_number: ENV['DPD_CLIENT_NUMBER'] || '234',
+      client_key:    ENV['DPD_CLIENT_KEY']    || '123'
     } }
   end
   let(:message) { auth }
