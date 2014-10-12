@@ -14,8 +14,8 @@ module DpdApi
         Client::Response.new(self.url)
       end
 
-      def response(method, params = {})
-        client.response(method, params)
+      def response(method, params = {}, options = {})
+        client.response(method, params, options)
       end
     end
   end

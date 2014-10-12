@@ -8,8 +8,8 @@ module DpdApi
         @client = Savon.client(wsdl: @url)
       end
 
-      def response(method, params = {})
-        builder = ResourceBuilder.new(@client, method, params)
+      def response(method, params = {}, options = {})
+        builder = ResourceBuilder.new(@client, method, params, options)
         builder.resources
       rescue Savon::SOAPFault => error
         { errors: error.to_s }
@@ -18,9 +18,10 @@ module DpdApi
       private
 
       class ResourceBuilder
-        def initialize(client, method, params)
-          @client = client
-          @method = method
+        def initialize(client, method, params, options = {})
+          @client  = client
+          @method  = method
+          @options = options
           @merged_params = merge_auth_params(params)
         end
 
@@ -42,7 +43,8 @@ module DpdApi
         end
 
         def request
-          @merged_params.blank? ? @merged_params : { request: @merged_params  }
+          namespace = @options[:namespace] || :request
+          @merged_params.blank? ? @merged_params : { namespace => @merged_params  }
         end
       end
     end
