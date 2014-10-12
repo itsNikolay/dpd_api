@@ -57,6 +57,7 @@ DpdApi::Calculator.service_cost(params)
 
 Table of content
 ----------------
+* [NOTES](#notes)
 * [DpdApi::Geography](#dpdapigeography)
   * [.cities_cash_pay](#cities_cash_pay)
   * [.terminals_self_delivery](#terminals_self_delivery)
@@ -82,6 +83,11 @@ Table of content
   * [.nl_invoice](#nl_invoice)
 * [DpdApi::LabelPrint](#dpdapilabelprint)
   * [.create_label_file](#create_label_file)
+
+Notes
+-----
+1. The gem is based on gem [savon](https://github.com/savonrb/savon) v.2
+2. Naming: We use a ruby style for methods istead of a java style ( java's `#getOrderStatus` becomes ruby's `#order_status`)
 
 Getting started
 ---------------
