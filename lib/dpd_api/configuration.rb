@@ -3,6 +3,8 @@
 begin
   require 'dotenv'
   Dotenv.load
+rescue LoadError
+  nil
 end
 
 module DpdApi
