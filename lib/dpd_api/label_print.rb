@@ -4,15 +4,11 @@ module DpdApi
   class LabelPrint < Base
     class << self
       def create_label_file(params = {})
-        method = :create_label_file
-        namespace = :get_label_file
-        response(method, params, namespace: namespace)
+        response(:create_label_file, params, namespace: :get_label_file)
       end
 
       def create_label(params = {})
-        method = :create_label
-        namespace = :get_label
-        response(method, params, namespace: namespace)
+        response(:create_label, params, namespace: :get_label)
       end
 
       protected
