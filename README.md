@@ -55,6 +55,34 @@ DpdApi::Calculator.service_cost(params)
 #=> [{:service_code=>"TEN", :service_name=>"DPD 10:00", :cost=>"2228.67", :days=>"4"}, {:service_code=>"DPT", :service_name=>"DPD 13:00", :cost=>"1966.47", :days=>"4"}, . . .]
 ```
 
+Table of content
+----------------
+* DpdApi::Geography
+  * .cities_cash_pay
+  * .terminals_self_delivery
+  * .parcel_shops
+* DpdApi::Calculator
+  * .service_cost
+  * .service_cost_by_parcels
+* DpdApi::Order
+  * .create_order
+  * .order_status
+  * .create_address
+  * .update_address
+  * .cancel_order
+  * .add_parcels
+  * .remove_parcels
+  * .invoice_file
+* DpdApi::Tracing
+  * .states_by_client_order
+  * .states_by_client_parcel
+  * .states_by_dpd_order
+* DpdApi::Nl
+  * .nl_amount
+  * .nl_invoice
+* DpdApi::LabelPrint
+  * .create_label_file
+
 Getting started
 ---------------
 
