@@ -58,30 +58,30 @@ DpdApi::Calculator.service_cost(params)
 Table of content
 ----------------
 * [DpdApi::Geography](#dpdapigeography)
-  * .cities_cash_pay
-  * .terminals_self_delivery
-  * .parcel_shops
-* DpdApi::Calculator
-  * .service_cost
-  * .service_cost_by_parcels
-* DpdApi::Order
-  * .create_order
-  * .order_status
-  * .create_address
-  * .update_address
-  * .cancel_order
-  * .add_parcels
-  * .remove_parcels
-  * .invoice_file
-* DpdApi::Tracing
-  * .states_by_client_order
-  * .states_by_client_parcel
-  * .states_by_dpd_order
-* DpdApi::Nl
-  * .nl_amount
-  * .nl_invoice
-* DpdApi::LabelPrint
-  * .create_label_file
+  * [.cities_cash_pay](#cities_cash_pay)
+  * [.terminals_self_delivery](#terminals_self_delivery)
+  * [.parcel_shops](#parcel_shops)
+* [DpdApi::Calculator](#dpdapicalculator)
+  * [.service_cost](#service_cost)
+  * [.service_cost_by_parcels](#service_cost_by_parcels)
+* [DpdApi::Order](#dpdapiorder)
+  * [.create_order](#create_order)
+  * [.order_status](#order_status)
+  * [.create_address](#create_address)
+  * [.update_address](#update_address)
+  * [.cancel_order](#cancel_order)
+  * [.add_parcels](#add_parcels)
+  * [.remove_parcels](#remove_parcels)
+  * [.invoice_file](#invoice_file)
+* [DpdApi::Tracing](#dpdapitracing)
+  * [.states_by_client_order](#states_by_client_order)
+  * [.states_by_client_parcel](#states_by_client_parcel)
+  * [.states_by_dpd_order](#states_by_dpd_order)
+* [DpdApi::Nl](#dpdapinl)
+  * [.nl_amount](#nl_amount)
+  * [.nl_invoice](#nl_invoice)
+* [DpdApi::LabelPrint](#dpdapilabelprint)
+  * [.create_label_file](#create_label_file)
 
 Getting started
 ---------------
