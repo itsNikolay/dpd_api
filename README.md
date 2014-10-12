@@ -57,7 +57,7 @@ DpdApi::Calculator.service_cost(params)
 
 Table of content
 ----------------
-* DpdApi::Geography
+* [DpdApi::Geography](#dpdapigeography)
   * .cities_cash_pay
   * .terminals_self_delivery
   * .parcel_shops
