@@ -15,10 +15,6 @@ module DpdApi
         response(method, params, namespace: namespace)
       end
 
-      def response(method, params = {}, options = {})
-        super[:return]
-      end
-
       protected
 
       def url
