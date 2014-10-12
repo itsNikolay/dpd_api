@@ -197,7 +197,7 @@ params = { pickup:   { city_id: 195851995 },
            self_delivery: false,
            weight: 1, }
 
-DpdApi::Geography.service_cost(params)
+DpdApi::Calculator.service_cost(params)
 
 # => [{
         service_code: "TEN",
