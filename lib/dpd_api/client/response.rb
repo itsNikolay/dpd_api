@@ -19,20 +19,21 @@ module DpdApi
         rescue Savon::SOAPFault => error
           { errors: error.to_s }
         end
-        notify_observers(@url, builder.merged_params, builder.response_body, result)
+        notify_observers(@url, builder.request_params, builder.response_body, result)
         result
       end
 
       private
 
       class ResourceBuilder
-        attr_reader :merged_params, :response_body
+        attr_reader :merged_params, :response_body, :request_params
 
         def initialize(client, method, params = {}, options = {})
           @client  = client
           @method  = method
+          @params  = params
           @namespace = options.delete(:namespace)
-          @merged_params = merge_auth_params(params)
+          @merged_params = merge_auth_params
         end
 
         def resources
@@ -44,9 +45,9 @@ module DpdApi
 
         private
 
-        def merge_auth_params(params = {})
+        def merge_auth_params
           auth_params = DpdApi.configuration.auth_params.clone
-          auth_params.deep_merge!(params)
+          auth_params.deep_merge!(@params)
         end
 
         def response
@@ -55,7 +56,7 @@ module DpdApi
 
         def request
           namespace = @namespace || :request
-          @merged_params.blank? ? @merged_params : { namespace => @merged_params  }
+          @request_params ||= @params.blank? ? @merged_params : { namespace => @merged_params  }
         end
       end
     end

@@ -1,5 +1,10 @@
 # encoding: utf-8
 
+begin
+  require 'dotenv'
+  Dotenv.load
+end
+
 module DpdApi
   class << self
     attr_accessor :configuration
@@ -19,8 +24,8 @@ module DpdApi
     attr_reader :auth_params
 
     def initialize
-      @client_key    = '123'
-      @client_number = '234'
+      @client_key    = ENV['DPD_CLIENT_KEY']    || '123'
+      @client_number = ENV['DPD_CLIENT_NUMBER'] || '234'
       @base_url      = 'http://wstest.dpd.ru'
       @debug         = false
     end

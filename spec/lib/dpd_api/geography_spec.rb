@@ -8,11 +8,10 @@ describe DpdApi::Geography do
   after(:all)  { savon.unmock! }
 
   let(:auth) do
-    { request: {
-      auth: {
-        client_number: "234",
-        client_key:    "123"
-      } } }
+    { auth: {
+      client_number: "234",
+      client_key:    "123"
+    } }
   end
   let(:message) { auth }
 
