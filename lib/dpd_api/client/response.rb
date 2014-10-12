@@ -21,7 +21,7 @@ module DpdApi
         def initialize(client, method, params, options = {})
           @client  = client
           @method  = method
-          @options = options
+          @namespace = options.delete(:namespace)
           @merged_params = merge_auth_params(params)
         end
 
@@ -43,7 +43,7 @@ module DpdApi
         end
 
         def request
-          namespace = @options[:namespace] || :request
+          namespace = @namespace || :request
           @merged_params.blank? ? @merged_params : { namespace => @merged_params  }
         end
       end
