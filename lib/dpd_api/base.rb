@@ -1,4 +1,5 @@
 # encoding: utf-8
+require "dpd_api/client/response"
 
 module DpdApi
   class Base
@@ -10,28 +11,11 @@ module DpdApi
     protected
 
       def client
-        Savon.client(wsdl: self.url)
+        Client::Response.new(self.url)
       end
 
       def response(method, params = {})
-        begin
-          params    = DpdApi.configuration
-                            .auth_params
-                            .clone
-                            .deep_merge!(params)
-          request   = params.blank? ?  params : { request: params  }
-          response  = client.call(method, message: request)
-          namespace = "#{method}_response".to_sym
-          resources = response.body[namespace][:return]
-          resources = if resources.is_a?(Array)
-                        resources
-                      else
-                        [] << resources
-                      end
-          resources
-        rescue Savon::SOAPFault => error
-          { errors: error.to_s }
-        end
+        client.response(method, params)
       end
     end
   end

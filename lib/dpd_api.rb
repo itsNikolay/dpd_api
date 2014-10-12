@@ -2,8 +2,6 @@
 
 require "dpd_api/version"
 
-require "savon"
-
 require 'dpd_api/configuration'
 require 'dpd_api/base'
 require 'dpd_api/geography'
