@@ -5,7 +5,7 @@ module DpdApi
     class << self
       def create_order(params = {})
         method = :create_order
-        response(method, params)
+        response(method, params, namespace: 'orders')
       end
 
       def cancel_order(params = {})

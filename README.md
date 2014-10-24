@@ -230,7 +230,7 @@ params = {
             },
          }
 
-DpdApi::Geography.service_cost_by_parcels(params)
+DpdApi::Calculator.service_cost_by_parcels(params)
 
 # => [{
         service_code: "TEN",
