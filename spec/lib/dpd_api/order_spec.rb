@@ -9,12 +9,12 @@ describe DpdApi::Order do
 
   let(:auth) do
     { auth: {
-        client_number: ENV['DPD_CLIENT_NUMBER'] || '234',
-        client_key:    ENV['DPD_CLIENT_KEY']    || '123'
-      } }
+      client_number: ENV['DPD_CLIENT_NUMBER'] || '234',
+      client_key:    ENV['DPD_CLIENT_KEY']    || '123'
+    } }
   end
   let(:message) do
-    { 'orders' => auth.clone.deep_merge!(params) }
+    { orders: auth.clone.deep_merge!(params) }
   end
 
   context ".create_order" do
@@ -93,9 +93,12 @@ describe DpdApi::Order do
   context ".order_status" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/order_status.xml") }
     let(:params) do
-      { order: {
+      { order_status: {
         order_number_internal: '1234567',
       } }
+    end
+    let(:message) do
+      { order_status: auth.clone.deep_merge!(params) }
     end
 
     it "is success" do
@@ -174,8 +177,6 @@ describe DpdApi::Order do
   # TODO: just fill with response the add_parcels.xml file and test should pass
   xcontext ".add_parcels" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/add_parcels.xml") }
-    let(:params) do
-    end
 
     it "is success" do
       savon.expects(:add_parcels).with(message: message).returns(fixture)
