@@ -10,22 +10,22 @@ module DpdApi
 
       def cancel_order(params = {})
         method = :cancel_order
-        response(method, params)
+        response(method, params, namespace: 'orders')
       end
 
       def order_status(params = {})
         method = :get_order_status
-        response(method, params)
+        response(method, params, namespace: 'orders')
       end
 
       def create_address(params = {})
         method = :create_address
-        response(method, params)
+        response(method, params, namespace: 'orders')
       end
 
       def update_address(params = {})
         method = :update_address
-        response(method, params)
+        response(method, params, namespace: 'orders')
       end
 
       # TODO: add :save for file

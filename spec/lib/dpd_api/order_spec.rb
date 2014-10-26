@@ -8,13 +8,14 @@ describe DpdApi::Order do
   after(:all)  { savon.unmock! }
 
   let(:auth) do
-    { request: {
-      auth: {
+    { auth: {
         client_number: ENV['DPD_CLIENT_NUMBER'] || '234',
         client_key:    ENV['DPD_CLIENT_KEY']    || '123'
-      } } }
+      } }
   end
-  let(:message) { auth.clone.deep_merge!({ request: params }) }
+  let(:message) do
+    { 'orders' => auth.clone.deep_merge!(params) }
+  end
 
   context ".create_order" do
     let(:fixture) { File.read("spec/fixtures/dpd_api/order/create_order.xml") }
