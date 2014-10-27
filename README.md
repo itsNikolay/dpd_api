@@ -312,11 +312,16 @@ params = { order: [
 
 DpdApi::Order.order_status(params)
 
-# => [{
-        order_number_internal: "123456",
-        order_num: "10160001MOW",
-        status: "OK",
-     }]
+# =>
+[ { :order_number_internal=>"1",
+    :status=>"OrderPending",
+    :error_message=>"Заказ обрабатывается нашими сотруниками. Не повторяйте оформление данного заказа.\\n---------------------\\nORA-20815: Улица с названием  “Фыва” неизвестна."
+  },
+  { :order_number_internal=>"2",
+    :status=>"OrderError",
+    :error_message=>"ORA-20817: Найдено более одной улицы с названием \\\"Ленина\\\""
+  }
+]
 
 
 ```
