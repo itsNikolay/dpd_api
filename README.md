@@ -251,13 +251,13 @@ params = {
             header: {
                 date_pickup: date,
                 sender_address: {
-                    name: fio,
+                    name: 'Иванов Иван Иваныч',
                     terminal_code: 'ABA',
                     city: 'Москва',
                     street: 'Ленина',
                     street_abbr: 'ул',
                     house: 1,
-                    contact_fio: fio,
+                    contact_fio: 'Иванов Иван Иваныч',
                     contact_phone: '+79211234567',
                 },
             },
@@ -271,13 +271,13 @@ params = {
                     cargo_registered: false,
                     cargo_category: 'Одежда',
                     receiver_address: {
-                        name: fio,
+                        name: 'Иванов Иван Иваныч',
                         terminal_code: '',
                         city: 'Воронеж',
                         street: 'Красноармейская',
                         street_abbr: 'ул',
                         house: 1,
-                        contact_fio: fio,
+                        contact_fio: 'Иванов Иван Иваныч',
                         contact_phone: '+79211234567',
                     },
                     parcel: [
@@ -330,12 +330,12 @@ matches `createAddress`
 params = {
             client_address: {
                 code: '78',
-                name: fio,
+                name: 'Иванов Иван Иваныч',
                 city: 'Воронеж',
                 street: 'Красноармейская',
                 street_abbr: 'ул',
                 house: 1,
-                contact_fio: fio,
+                contact_fio: 'Иванов Иван Иваныч',
                 contact_phone: '+79211234567',
             },
          }
@@ -357,12 +357,12 @@ matches `updateAddress`
 params = {
             client_address: {
                 code: '78',
-                name: fio,
+                name: 'Иванов Иван Иваныч',
                 city: 'Воронеж',
                 street: 'Красноармейская',
                 street_abbr: 'ул',
                 house: 1,
-                contact_fio: fio,
+                contact_fio: 'Иванов Иван Иваныч',
                 contact_phone: '+79200000000',
             },
          }
