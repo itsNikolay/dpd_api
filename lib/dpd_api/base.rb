@@ -6,7 +6,7 @@ module DpdApi
   class Base
     class << self
       def operations
-        client.operations
+        client.client.operations
       end
 
     protected

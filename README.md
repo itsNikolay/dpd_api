@@ -480,9 +480,7 @@ matches `/services/tracing1-1?wsdl` in DPD SOAP API
 ####.states_by_client_order
 matches `getStatesByClientOrder`
 ```ruby
-params = {
-            client_order_nr: '12345',
-         }
+params = { client_order_nr: '12345' }
 
 DpdApi::Tracing.states_by_client_order(params)
 

@@ -6,6 +6,8 @@ module DpdApi
     class Response
       include Observable
 
+      attr_reader :client
+
       def initialize(url)
         @url    = url
         @client = Savon.client(wsdl: @url)
