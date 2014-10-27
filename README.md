@@ -303,10 +303,10 @@ DpdApi::Order.create_order(params)
 ####.order_status
 matches `getOrderStatus`
 ```ruby
-params = {
-            order: [{
-                order_number_internal: '123456',
-            }]
+params = { order: [
+              { order_number_internal: '1' },
+              { order_number_internal: '2' },
+            ]
          }
 
 
