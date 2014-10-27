@@ -309,7 +309,6 @@ params = { order: [
             ]
          }
 
-
 DpdApi::Order.order_status(params)
 
 # =>
